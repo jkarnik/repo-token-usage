@@ -1,0 +1,5 @@
+node_modules/
+.DS_Store
+.superpowers/
+# Symlink to the installed Preflight package, made by `npm run setup`
+/preflight

@@ -1,0 +1,15 @@
+{
+  "name": "repo-token-usage",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Local dashboard of AI coding token usage by repo, read from Preflight's session files",
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "setup": "ln -sfn \"$(npm root -g)/@newrelic/preflight\" preflight",
+    "start": "node src/server.js",
+    "test": "node --test"
+  }
+}

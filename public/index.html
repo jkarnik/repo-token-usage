@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Token usage by repo</title>
+  <link rel="stylesheet" href="/style.css">
+  <script type="module" src="/app.js"></script>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <h1>Token usage by repo</h1>
+      <div class="sub" id="asof">Loading Preflight data…</div>
+    </header>
+
+    <div class="filters" role="group" aria-label="Date range">
+      <div class="seg" id="presets">
+        <button type="button" data-days="1">Today</button>
+        <button type="button" data-days="7">7 days</button>
+        <button type="button" data-days="30">30 days</button>
+        <button type="button" data-days="90">90 days</button>
+      </div>
+      <label>From <input type="date" id="from"></label>
+      <label>To <input type="date" id="to"></label>
+    </div>
+
+    <section class="kpis" id="kpis" aria-live="polite"></section>
+
+    <section class="card" id="repos-card">
+      <div class="card-head"><h2>Tokens by repo</h2></div>
+      <div id="repos"></div>
+    </section>
+
+    <section class="card" id="daily-card">
+      <div class="card-head">
+        <h2>Tokens per day</h2>
+        <div class="seg" id="view" role="group" aria-label="Show as">
+          <button type="button" data-view="chart" aria-pressed="true">Chart</button>
+          <button type="button" data-view="table" aria-pressed="false">Table</button>
+        </div>
+      </div>
+      <div class="legend" id="legend"></div>
+      <div class="chart" id="daily"></div>
+    </section>
+
+    <p class="note">
+      Tokens count fresh input, output, cache writes and cache reads. Preflight saves a session's tokens
+      as one total but its cost per day, so a session that ran across several days has its tokens split
+      by each day's share of its cost. Days are in local time. Sessions outside a git repo are listed by
+      the folder they ran in. Preflight deletes sessions 90 days after their last activity.
+    </p>
+  </div>
+  <div id="tip" role="tooltip"></div>
+</body>
+</html>
